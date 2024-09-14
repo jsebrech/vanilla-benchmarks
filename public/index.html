@@ -9,13 +9,19 @@
     </head>
     <body>
         <p>
-            These are benchmarks measuring how many components can be added to a page in 1 millisecond,
-            by adding 100.000 components using various strategies and measuring elapsed time until the 
-            browser has rendered the components.
+            These are benchmarks measuring how many components can be added to a page in 1 millisecond.
+            Check the code or the readme to see the strategies.
         </p>
-        <p>Check the code or the readme to see the strategies</o>
 
-        <p><a href="vanilla/">Web components benchmarks</a>, testing various strategies to render web components.</p>
-        <p><a href="react/">React benchmarks</a>, testing two strategies for components in react.</p>
+        <p>Run manually:</p>
+        <ul>
+            <li><a href="vanilla/">Web components benchmarks</a>, testing various strategies to render web components.</li>
+            <li><a href="react/">React benchmarks</a>, testing two strategies for components in react.</li>
+        </ul>
+        
+        <p>Run automatic:</p>
+        <x-suite></x-suite>
+
+        <script type="module" src="suite.js"></script>
     </body>
 </html>

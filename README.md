@@ -1,7 +1,6 @@
 # Vanilla benchmarks
 
-These are benchmarks measuring how many vanilla web components (custom elements) can be added to a page in 1 millisecond, 
-by adding 100.000 components using various strategies (see below) and measuring elapsed time until the browser has rendered the components.
+These are benchmarks measuring how many vanilla web components (custom elements) can be added to a page in 1 millisecond.
 
 The focus of this benchmark is on measuring component overhead for the simplest component that actually renders something. 
 Each component renders a span containing just a single dot `'.'`.
@@ -12,9 +11,9 @@ Part of the [Plain Vanilla Web](https://plainvanillaweb.com) project.
 
 To run the benchmark yourself:
 
-- Host as a static site: `npx http-server public -c-1`
-- Browse to `http://localhost/vanilla`  and run the tests
-- Browse to `http://localhost/react`  and run the tests
+- Host as a static site: `npx http-server public`
+- Browse to `http://localhost:8080/` in a freshly restarted and clean browser session (private mode)
+- Click 'Run' to run all the tests
 
 ## Benchmark results (summary)
 
@@ -22,7 +21,7 @@ To run the benchmark yourself:
 
 Benchmark executed with current software versions as of september 5, 2024.
 
-All browsers were loaded without extensions.
+All browsers were first restarted, and loaded without extensions in private mode.
 
 Measured on two machines:
 
@@ -38,12 +37,17 @@ Techniques:
 - `innerhtml`: set custom element content via innerHTML
 - `append`: set content via document.createElement and append
 - `append (buffered)`: same as append, except buffered first in a document fragment
-- `shadow + innerhtml`: set shadow content via innerHTML
-- `shadow + append`: set shadow content via append
+- `shadow`: with shadow DOM, set shadow content via innerHTML
+- `shadow + append`: with shadow DOM, set shadow content via append
 - `lit`: render via Lit framework
 - `template + append`: append a cloned template
+- `textcontent`: set content via this.textContent, skipping the span ("the WC is the span")
+- `direct`: just create the span directly, not a custom element (what is the baseline?)
 - `react pure`: standard react component
 - `react + wc`: react component wraps the `append` web component
+- `norender`: same tests, but only creating elements and not appending to the document (what is the construction cost?)
+
+# TODO: update everything below this point based on the new code
 
 **Chrome on M1, best of three**
 
