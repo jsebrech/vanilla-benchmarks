@@ -1,0 +1,125 @@
+Brave @ M1:
+
+vanilla innerhtml - elements/ms: 87
+vanilla append - elements/ms: 145
+vanilla append buffered - elements/ms: 145
+vanilla shadowed - elements/ms: 82
+vanilla shadowed-append - elements/ms: 128
+vanilla template - elements/ms: 129
+vanilla textcontent - elements/ms: 177
+vanilla direct - elements/ms: 466
+vanilla lit - elements/ms: 99
+react react - elements/ms: 369
+react webcomponent - elements/ms: 133
+vanilla append norender - elements/ms: 477
+vanilla shadowed norender - elements/ms: 370
+vanilla direct norender - elements/ms: 4344
+vanilla lit norender - elements/ms: 384
+
+Chrome @ M1:
+
+vanilla innerhtml - elements/ms: 135
+vanilla append - elements/ms: 239
+vanilla append buffered - elements/ms: 239
+vanilla shadowed - elements/ms: 127
+vanilla shadowed-append - elements/ms: 203
+vanilla template - elements/ms: 198
+vanilla textcontent - elements/ms: 345
+vanilla direct - elements/ms: 461
+vanilla lit - elements/ms: 137
+react react - elements/ms: 338
+react webcomponent - elements/ms: 212
+vanilla append norender - elements/ms: 1393
+vanilla shadowed norender - elements/ms: 814
+vanilla direct norender - elements/ms: 4277
+vanilla lit norender - elements/ms: 880
+
+Edge @ M1:
+
+vanilla innerhtml - elements/ms: 135
+vanilla append - elements/ms: 237
+vanilla append buffered - elements/ms: 236
+vanilla shadowed - elements/ms: 127
+vanilla shadowed-append - elements/ms: 196
+vanilla template - elements/ms: 196
+vanilla textcontent - elements/ms: 338
+vanilla direct - elements/ms: 456
+vanilla lit - elements/ms: 137
+react react - elements/ms: 352
+react webcomponent - elements/ms: 212
+vanilla append norender - elements/ms: 1361
+vanilla shadowed norender - elements/ms: 795
+vanilla direct norender - elements/ms: 4384
+vanilla lit norender - elements/ms: 869
+
+Firefox @ M1:
+
+vanilla innerhtml - elements/ms: 252
+vanilla append - elements/ms: 299
+vanilla append buffered - elements/ms: 341
+vanilla shadowed - elements/ms: 189
+vanilla shadowed-append - elements/ms: 215
+vanilla template - elements/ms: 258
+vanilla textcontent - elements/ms: 430
+vanilla direct - elements/ms: 698
+vanilla lit - elements/ms: 93
+react react - elements/ms: 343
+react webcomponent - elements/ms: 211
+vanilla append norender - elements/ms: 1185
+vanilla shadowed norender - elements/ms: 775
+vanilla direct norender - elements/ms: 3873
+vanilla lit norender - elements/ms: 322
+
+Safari @ M1:
+
+vanilla innerhtml - elements/ms: 187
+vanilla append - elements/ms: 239
+vanilla append buffered - elements/ms: 237
+vanilla shadowed - elements/ms: 161
+vanilla shadowed-append - elements/ms: 204
+vanilla template - elements/ms: 195
+vanilla textcontent - elements/ms: 391
+vanilla direct - elements/ms: 435
+vanilla lit - elements/ms: 142
+react react - elements/ms: 330
+react webcomponent - elements/ms: 211
+vanilla append norender - elements/ms: 2248
+vanilla shadowed norender - elements/ms: 1132
+vanilla direct norender - elements/ms: 5742
+vanilla lit norender - elements/ms: 1139
+
+Chrome @ Chi:
+
+vanilla innerhtml - elements/ms: 29
+vanilla append - elements/ms: 55
+vanilla append buffered - elements/ms: 59
+vanilla shadowed - elements/ms: 26
+vanilla shadowed-append - elements/ms: 47
+vanilla template - elements/ms: 46
+vanilla textcontent - elements/ms: 81
+vanilla direct - elements/ms: 116
+vanilla lit - elements/ms: 33
+react react - elements/ms: 87
+react webcomponent - elements/ms: 52
+vanilla append norender - elements/ms: 434
+vanilla shadowed norender - elements/ms: 231
+vanilla direct norender - elements/ms: 1290
+vanilla lit norender - elements/ms: 239
+
+Firefox @ Chi:
+
+vanilla innerhtml - elements/ms: 58
+vanilla append - elements/ms: 77
+vanilla append buffered - elements/ms: 82
+vanilla shadowed - elements/ms: 41
+vanilla shadowed-append - elements/ms: 49
+vanilla template - elements/ms: 58
+vanilla textcontent - elements/ms: 105
+vanilla direct - elements/ms: 178
+vanilla lit - elements/ms: 22
+react react - elements/ms: 101
+react webcomponent - elements/ms: 59
+vanilla append norender - elements/ms: 401
+vanilla shadowed norender - elements/ms: 229
+vanilla direct norender - elements/ms: 1104
+vanilla lit norender - elements/ms: 77
