@@ -1,7 +1,13 @@
+import { getRunParams } from "../test-shared.js";
+
 const { React, ReactDOM } = window;
 const e = React.createElement;
 
-const MAX_COUNT = 100000;
+const params = {
+    // defaults can be overridden with hash: #run=react,maxCount=1000
+    maxCount: 100000,
+    ...getRunParams()
+}
 
 customElements.define('x-tick-append', class extends HTMLElement {
     connectedCallback() {
@@ -20,28 +26,45 @@ class App extends React.Component {
     }
 
     render() {
-        const buttons = ['react', 'webcomponent'].map(
-            element => {
-                return e(Button, 
-                        { onClick: () => this.setState({ current: element, start: Date.now(), elapsed: 0 }), name: element });
-            }
-        );
-        const buttonContainer = e('div', null, ...buttons);
+        const automatic = !!params.run;
+
+        let buttonContainer;
+        if (!automatic) {
+            const buttons = ['react', 'webcomponent'].map(
+                element => {
+                    return e(Button, 
+                            { onClick: () => this.setState({ current: element, start: Date.now(), elapsed: 0 }), name: element });
+                }
+            );
+            buttonContainer = e('div', null, ...buttons);        
+        } else {
+            const button = e(Button, { 
+                onClick: () => this.setState({ current: params.run, start: Date.now(), elapsed: 0 }), 
+                id: 'run', name: 'run',
+                style: { position: 'absolute', left: '-500px' }
+            });
+            buttonContainer = e('div', null, button);
+        }
 
         const children = [];
         if (this.state.current) {
             children.push(e(Ticks, {current: this.state.current, start: this.state.start}));
-            if (!this.state.elapsed) {
-                // wait until react and the browser complete the render to measure
-                requestAnimationFrame(() => {
-                    this.setState({ elapsed: Date.now() - this.state.start });
-                });
-            } else {
-                const ticksPerMs = Math.round(MAX_COUNT / this.state.elapsed);
-                children.unshift(e('p', null, 
-                    `${MAX_COUNT} ${this.state.current} components in ${this.state.elapsed} ms (${ticksPerMs} ticks/ms)`));    
+            // for detecting when the test is complete
+            children.push(e('span', {id: 'done' }));
+            // if this isn't run as part of a suite (manual run)
+            if (!automatic) {
+                if (!this.state.elapsed) {
+                    // wait until react and the browser complete the render to measure
+                    requestAnimationFrame(() => {
+                        this.setState({ elapsed: Date.now() - this.state.start });
+                    });
+                } else {
+                    const ticksPerMs = Math.round(params.maxCount / this.state.elapsed);
+                    children.unshift(e('p', null, 
+                        `${params.maxCount} ${this.state.current} components in ${this.state.elapsed} ms (${ticksPerMs} ticks/ms)`));    
+                }
             }
-        } else {
+        } else if (!automatic) {
             children.push(e('p', null, 'Choose a strategy to benchmark'));
         }
 
@@ -58,7 +81,7 @@ function Ticks ({current}) {
         case 'webcomponent': elem = TickWC; break;
         default: elem = TickReact;
     }
-    while (count < MAX_COUNT) {
+    while (count < params.maxCount) {
         children.push(e(elem));
         count++;
     }
@@ -66,10 +89,12 @@ function Ticks ({current}) {
 }
 
 function Button(props){
-    return e('button',{onClick:props.onClick},props.name);
+    return e('button',{onClick:props.onClick, ...props},props.name);
 }
 const TickReact = () => e('span', null, '. ');
 const TickWC = () => e('x-tick-append');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(e(App));
+
+window.addEventListener('hashchange', () => location.reload());

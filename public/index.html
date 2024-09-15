@@ -4,18 +4,25 @@
         <title>Web components benchmark</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
         <style>
-            body { font-family: system-ui, sans-serif; }
+            body { font-family: system-ui, sans-serif; margin: 1em; }
         </style>
     </head>
     <body>
+        <h1>Vanilla benchmarks</h1>
         <p>
-            These are benchmarks measuring how many components can be added to a page in 1 millisecond,
-            by adding 100.000 components using various strategies and measuring elapsed time until the 
-            browser has rendered the components.
+            These are benchmarks measuring how many web components can be added to a page in 1 millisecond.
+            Learn more in the <a href="https://github.com/jsebrech/vanilla-benchmarks">Github repo</a>.
         </p>
-        <p>Check the code or the readme to see the strategies</o>
 
-        <p><a href="vanilla/">Web components benchmarks</a>, testing various strategies to render web components.</p>
-        <p><a href="react/">React benchmarks</a>, testing two strategies for components in react.</p>
+        <p>Run manually, one by one:</p>
+        <ul>
+            <li><a href="vanilla/">Web components benchmarks</a>, testing various strategies to render web components.</li>
+            <li><a href="react/">React benchmarks</a>, testing two strategies for components in react (for comparison).</li>
+        </ul>
+        
+        <p>Run automatic:</p>
+        <x-suite></x-suite>
+
+        <script type="module" src="suite.js"></script>
     </body>
 </html>
